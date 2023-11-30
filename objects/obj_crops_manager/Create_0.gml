@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 ds_crops_types = 0; //this is the table that hold information for each type of crop
+ds_crops_instances = 0 // save the location of cell that already have a crop planted, so that another crop cant be planted on top of that 
 is_planting = false
 //the order of this enum should correspond to the order in the sprite
 enum FANTASY_CROP {
@@ -28,3 +29,5 @@ create_crop_type(4)  //this is the info of the carrot
 
 mx = 0;
 my = 0;
+
+cell_size = 16

@@ -15,6 +15,6 @@ if(is_planting) {
 
 	
 	if mouse_check_button_pressed(mb_left) {
-		instance_create_crop(mouse_x, mouse_y, selected_crop)
+		instance_create_crop(mx, my, selected_crop)
 	}
 }

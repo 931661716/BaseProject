@@ -43,6 +43,7 @@
     {"name":"sAttackIce","order":4,"path":"sprites/sAttackIce/sAttackIce.yy",},
     {"name":"sBarrier","order":10,"path":"sprites/sBarrier/sBarrier.yy",},
     {"name":"Crops","order":11,"path":"scripts/Crops/Crops.yy",},
+    {"name":"obj_game","order":4,"path":"objects/obj_game/obj_game.yy",},
     {"name":"PlayerCollision","order":6,"path":"scripts/PlayerCollision/PlayerCollision.yy",},
     {"name":"sBatAttack","order":3,"path":"sprites/sBatAttack/sBatAttack.yy",},
     {"name":"sTextBox","order":7,"path":"sprites/sTextBox/sTextBox.yy",},

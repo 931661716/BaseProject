@@ -12,5 +12,7 @@ max_growth_stage = 6 //TODO: fix this hardcode value
 
 fully_grown = false
 
-xx= x - (frame_width/2 ) + 1
-yy= y - frame_height + 1
+//xx= x - (frame_width/2 ) + 1
+//yy= y - frame_height + 1
+xx =x
+yy =y

@@ -65,6 +65,7 @@
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},
     {"id":{"name":"sBarrier","path":"sprites/sBarrier/sBarrier.yy",},},
     {"id":{"name":"Crops","path":"scripts/Crops/Crops.yy",},},
+    {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},},
     {"id":{"name":"PlayerCollision","path":"scripts/PlayerCollision/PlayerCollision.yy",},},
     {"id":{"name":"sBatAttack","path":"sprites/sBatAttack/sBatAttack.yy",},},
     {"id":{"name":"sTextBox","path":"sprites/sTextBox/sTextBox.yy",},},
