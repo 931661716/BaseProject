@@ -18,3 +18,21 @@ if(is_planting) {
 		instance_create_crop(mx, my, selected_crop)
 	}
 }
+
+//Testing grow_state
+if (instance_exists(obj_fantasy_crop) and keyboard_check_pressed(ord("G"))) {
+	with(obj_fantasy_crop) {
+		if growth_stage < max_growth_stage {
+			days_old += 1
+			growth_stage = days_old div growth_stage_duration
+		} else {
+			growth_stage = max_growth_stage
+			fully_grown = true
+		}
+	}
+	
+}
+
+
+
+
