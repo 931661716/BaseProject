@@ -1,7 +1,7 @@
 /// @function reate_crop_type(_growth_state_duration)
 /// @param {real} _growth_state_duration the number of stage until the crop is harvestable
 /// @description add a row of crop data to the grid
-function create_crop_type(_growth_state_duration){
+function create_crop_type(_growth_state_duration, _name){
 	 arg_num =  argument_count
 	 height = 0;
 	if !ds_exists(ds_crops_types, ds_type_grid) 
@@ -20,7 +20,7 @@ function create_crop_type(_growth_state_duration){
 	i = 0 
 	repeat (arg_num) 
 	{
-		ds_crops_types[# i, yy] = _growth_state_duration
+		ds_crops_types[# i, yy] = argument[i]
 		i +=1
 	}
 }
@@ -67,4 +67,23 @@ function instance_create_crop(_xx, _yy, _crop_type) {
 		return false
 	}
 	
+}
+/// @param _grid_x
+/// @param _grid_y
+/// @param _crop_type
+/// @param _days_old
+/// @description respawn_crop
+function respawn_crop(_grid_x, _grid_y, _crop_type, _days_old) {
+	var _inst = instance_create_layer(_grid_x * cell_size, _grid_y * cell_size, "Instances", obj_fantasy_crop)
+	ds_crops_instances[# _grid_x, _grid_y]  = _inst
+	
+	with (_inst) {
+		crop_type = _crop_type
+		days_old = _days_old
+		growth_stage_duration = obj_crops_manager.ds_crops_types[# 0, crop_type]
+	}
+	
+	show_debug_message("Respawned a " + ds_crops_types[# 1, crop_type])
+	
+	return _inst
 }

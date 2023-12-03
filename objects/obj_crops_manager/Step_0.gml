@@ -19,7 +19,7 @@ if(is_planting) {
 	}
 }
 
-//Testing grow_state
+//Testing grow_state, TODO:  this should be call each day  
 if (instance_exists(obj_fantasy_crop) and keyboard_check_pressed(ord("G"))) {
 	with(obj_fantasy_crop) {
 		if growth_stage < max_growth_stage {
