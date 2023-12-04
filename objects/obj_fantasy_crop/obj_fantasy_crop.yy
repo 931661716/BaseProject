@@ -12,7 +12,10 @@
     "name": "Crops",
     "path": "folders/Objects/Crops.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_par_depth",
+    "path": "objects/obj_par_depth/obj_par_depth.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -30,5 +33,5 @@
   "solid": false,
   "spriteId": null,
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }
