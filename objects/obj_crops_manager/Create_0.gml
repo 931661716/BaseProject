@@ -3,7 +3,8 @@
 ds_crops_types = -1; //this is the table that hold information for each type of crop
 ds_crops_instances = -1 // save the location of cell that already have a crop planted, so that another crop cant be planted on top of that 
 ds_crops_data = ds_grid_create(4,1) //to save the data of existing crops on the field, for save or for room exit 
-ds_crops_data[# 0, 0] = -1
+//ds_crops_data[# 0, 0] = -1
+ds_grid_clear(ds_crops_data, -1)
 is_planting = false
 //the order of this enum should correspond to the order in the sprite
 enum FANTASY_CROP {
