@@ -1,15 +1,44 @@
-/// @description Insert description here
-// You can write your code in this editor
-ds_crops_types = -1; //this is the table that hold information for each type of crop
+/// @description Insert description here 
+//The exp system for crop
+// each crop will require a certain amount of exp point to ascend to each stage
+// each day watered will give them 100 exp
+// depend on the fertilizer, add more exp
+
+//How to store exp point for each crop 
+// There are 3 way to do exp point
+// 1. save (and update )all the var that affect exp and calculate the exp base on those var when need (choosen)
+// 2. save a exp_point var, this var will be updated base on event (day pass, fetilizer)
+// 3. both
+
+//this is the table that hold information for each type of crop
+//Every crop have 5 stage, the different how to get to each stage
+//any type of crop only need 1 day(=100exp) to get to stage 1
+//Statge 0 = seed
+//Statge 1 = sprout
+//Statge 2 = seedling
+//Statge 3 = budding
+//Statge 4 = flowering
+//Statge 5 = ripening (harvestable)
+//The shape of the table:
+//Each row is a type of crop and its info
+//col 1 is the exp point to get to stage 1
+//col 2 is the exp point to get to stage 2
+//col 3 is the exp point to get to stage 3
+//col 4 is the exp point to get to stage 4
+//col 5 is the exp point to get to stage 5
+//col 6 is the name of the crop
+//col 6 is the cost in summer
+ds_crops_types = -1
 ds_crops_instances = -1 // save the location of cell that already have a crop planted, so that another crop cant be planted on top of that 
 ds_crops_data = ds_grid_create(4,1) //to save the data of existing crops on the field, for save or for room exit 
 //ds_crops_data[# 0, 0] = -1
 ds_grid_clear(ds_crops_data, -1)
 is_planting = false
+max_growth_stage = 5
 //the order of this enum should correspond to the order in the sprite
 enum FANTASY_CROP {
 	CARROT,
-	CROP2, //dont know the name of the crop yet
+	CROP2, //placeholder
 	CROP3,
 	CROP4,
 	CROP5,
@@ -19,16 +48,17 @@ enum FANTASY_CROP {
 }
 num_fantasy_crop = 8
 selected_crop = 0 //correspond to enum above
+
 //insert the info of a crop to the table
 //again, the order is important, should correspond to the order of crop in the sprite
-create_crop_type(4, "carrot")  //this is the info of the carrot
-create_crop_type(4 ,"crop2")
-create_crop_type(4 ,"crop3")
-create_crop_type(4 ,"crop4")
-create_crop_type(4 ,"crop5")
-create_crop_type(4 ,"crop6")
-create_crop_type(4 ,"crop7")
-create_crop_type(4 ,"crop8")
+create_crop_type(100,200,300,400,500,"carrot", 700)  //this is the info of the carrot
+create_crop_type(100,100,100,100,100,"crop2", 700)
+create_crop_type(100,100,100,100,100,"crop3", 700)
+create_crop_type(100,100,100,100,100,"crop4", 700)
+create_crop_type(100,100,100,100,100,"crop5", 700)
+create_crop_type(100,100,100,100,100,"crop6", 700)
+create_crop_type(100,100,100,100,100,"crop7", 700)
+create_crop_type(100,100,100,100,100,"crop8", 700)
 
 mx = 0;
 my = 0;

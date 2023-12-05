@@ -1,27 +1,43 @@
 /// @function reate_crop_type(_growth_state_duration)
-/// @param {real} _growth_state_duration the number of stage until the crop is harvestable
+/// @param _stage_1
+/// @param _stage_2
+/// @param _stage_3
+/// @param _stage_4
+/// @param _stage_5
+/// @param _name
+/// @param _cost
 /// @description add a row of crop data to the grid
-function create_crop_type(_growth_state_duration, _name){
-	 arg_num =  argument_count
-	 height = 0;
+function create_crop_type(
+_stage_1,
+_stage_2, 
+_stage_3, 
+_stage_4, 
+_stage_5, 
+_name,
+_cost
+)
+
+{
+	 var _arg_num =  argument_count
+	 var _height = 0;
 	if !ds_exists(ds_crops_types, ds_type_grid) 
 	{
-		ds_crops_types = ds_grid_create(arg_num, 1)
-		height = 1
+		ds_crops_types = ds_grid_create(_arg_num, 1)
+		_height = 1
 	}
 	else 
 	{
-		height = ds_grid_height(ds_crops_types)
-		ds_grid_resize(ds_crops_types, arg_num, height + 1)
-		height += 1
+		_height = ds_grid_height(ds_crops_types)
+		ds_grid_resize(ds_crops_types, _arg_num, _height + 1)
+		_height += 1
 	}
 	
-	yy = height - 1
-	i = 0 
-	repeat (arg_num) 
+	var _yy = _height - 1
+	var _i = 0 
+	repeat (_arg_num) 
 	{
-		ds_crops_types[# i, yy] = argument[i]
-		i +=1
+		ds_crops_types[# _i, _yy] = argument[_i]
+		_i +=1
 	}
 }
 
@@ -53,13 +69,13 @@ function instance_create_crop(_xx, _yy, _crop_type) {
 		//var _data = tilemap_get_at_pixel(_map_id, _xx, _yy)
 		//if _data == 0 { return false }
 	
-		//save the newly created crop's id to the ds_crops_instances
+		//create and save the newly created crop's id to the ds_crops_instances
 		var _ist = instance_create_layer(_xx , _yy,"Instances", obj_fantasy_crop)
 		_i_grid[# _gx, _gy] = _ist
 	
 		with(_ist) {
 			crop_type = _crop_type
-			growth_stage_duration = obj_crops_manager.ds_crops_types[# 0, _crop_type]
+			//growth_stage_duration = obj_crops_manager.ds_crops_types[# 0, _crop_type]
 		}
 		return _ist;
 	} else {
@@ -86,4 +102,22 @@ function respawn_crop(_grid_x, _grid_y, _crop_type, _days_old) {
 	show_debug_message("Respawned a " + ds_crops_types[# 1, crop_type])
 	
 	return _inst
+}
+
+/// @param _days_old
+/// @param _days_not_watered
+/// @param _bonus
+/// @description this will not return 0 as this will should only be called on a day passed, by then the crop will be in stage 1 by default
+function get_cur_exp(_days_old, _days_not_watered, _bonus) {	
+	if (_days_old == 0) return 0
+	if (_days_old == 1) return 100 + _bonus
+	else return 100 + (_days_old - _days_not_watered - 1) * 100 + _bonus
+}
+
+/// @param _cur_exp
+/// @param _max_exp
+/// @param _max_spr_num
+function get_crop_spr_num(_cur_exp, _max_exp, _max_spr_num) {
+	var _spr_num = floor((_cur_exp / _max_exp) * _max_spr_num) 
+	return _spr_num == 0 ? 1 : _spr_num 
 }
