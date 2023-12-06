@@ -19,7 +19,10 @@
 					ds_crops_data[# 1, _slot] = _yy 
 					ds_crops_data[# 2, _slot] = _inst.crop_type 
 					ds_crops_data[# 3, _slot] = _inst.days_old
-					
+					ds_crops_data[# 4, _slot] = _inst.is_watered
+					ds_crops_data[# 5, _slot] = _inst.days_not_watered
+					ds_crops_data[# 6, _slot] = _inst.bonus
+
 					_slot += 1
 				}
 				

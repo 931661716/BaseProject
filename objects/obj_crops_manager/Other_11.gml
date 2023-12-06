@@ -54,8 +54,11 @@ if (instance_exists(obj_fantasy_crop)) {
 	}
 } else if (ds_crops_data[# 0, 0] != -1) { //make crop grow if player is outside the farm_room 
 	var _h = ds_grid_height(ds_crops_data)
-	var _i = 0; repeat(_h) {
-		ds_crops_data[# 3, _i] += 1
+	var _i = 0; repeat(_h) {	
+		if (ds_crops_data[# 3, _i] != 0 and !ds_crops_data[# 4, _i]) { ds_crops_data[# 5, _i] += 1 }
+		ds_crops_data[# 3, _i] += 1 //days_old += 1
+		ds_crops_data[# 4, _i] = true //TODO should be false when watering mechanic is added, true for debuging 
+
 		_i += 1
 	} 
 

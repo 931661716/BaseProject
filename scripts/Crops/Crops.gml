@@ -88,18 +88,23 @@ function instance_create_crop(_xx, _yy, _crop_type) {
 /// @param _grid_y
 /// @param _crop_type
 /// @param _days_old
+/// @param _is_watered
+/// @param _days_not_watered
+/// @param _bonus
 /// @description respawn_crop
-function respawn_crop(_grid_x, _grid_y, _crop_type, _days_old) {
+function respawn_crop(_grid_x, _grid_y, _crop_type, _days_old, _is_watered, _days_not_watered, _bonus) {
 	var _inst = instance_create_layer(_grid_x * cell_size, _grid_y * cell_size, "Instances", obj_fantasy_crop)
 	ds_crops_instances[# _grid_x, _grid_y]  = _inst
 	
 	with (_inst) {
 		crop_type = _crop_type
 		days_old = _days_old
-		growth_stage_duration = obj_crops_manager.ds_crops_types[# 0, crop_type]
+		is_watered = _is_watered
+		days_not_watered = _days_not_watered
+		bonus = _bonus
 	}
 	
-	show_debug_message("Respawned a " + ds_crops_types[# 1, crop_type])
+	show_debug_message("Respawned a " + ds_crops_types[# 5, crop_type])
 	
 	return _inst
 }

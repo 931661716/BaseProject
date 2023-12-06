@@ -9,7 +9,7 @@
 // 1. save (and update )all the var that affect exp and calculate the exp base on those var when need (choosen)
 // 2. save a exp_point var, this var will be updated base on event (day pass, fetilizer)
 // 3. both
-
+ds_crops_types = -1
 //this is the table that hold information for each type of crop
 //Every crop have 5 stage, the different is how many exp to get to each stage
 //by design, any type of crop only need 1 day(=100exp) to get to stage 1
@@ -30,9 +30,19 @@
 //col 6 is the name of the crop
 //col 7 is the seed price
 //TODO: and more to came
-ds_crops_types = -1
-ds_crops_instances = -1 // save the location of cell that already have a crop planted, so that another crop cant be planted on top of that 
-ds_crops_data = ds_grid_create(4,1) //to save the data of existing crops on the field, for save or for room exit 
+
+ds_crops_instances = -1 
+// save the location of cell that already have a crop planted, so that another crop cant be planted on top of that 
+// this is a grid that represent the room in a 16x16 cell
+
+ds_crops_data = ds_grid_create(7,1) 
+//to save the data of existing crops on the field, for save or for room exit 
+//each grop is a crop that is planted
+//col 1 is the x coordinate
+//col 2 is the y coordinate
+//col 3 is the crop type
+//col 4 is the days old
+//
 //ds_crops_data[# 0, 0] = -1
 ds_grid_clear(ds_crops_data, -1)
 is_planting = false
