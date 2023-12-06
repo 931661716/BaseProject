@@ -29,9 +29,15 @@ var _spr_offset = 0
 var _types_offset = 0 
 var _max_spr_num = 0 
 if (_sprite_id = spr_fantasy_crops) {
+	if (selected_crop <= 7) {
 	_spr_offset = ds_crop_sprites[# 1,  CROP_SPRITE_INFO.FANTASY]
 	_types_offset = ds_crop_sprites[# 2,  CROP_SPRITE_INFO.FANTASY]
 	_max_spr_num = ds_crop_sprites[# 3,  CROP_SPRITE_INFO.FANTASY]
+	} else {
+	_spr_offset = ds_crop_sprites[# 1,  CROP_SPRITE_INFO.FANTASY_2]
+	_types_offset = ds_crop_sprites[# 2,  CROP_SPRITE_INFO.FANTASY_2]
+	_max_spr_num = ds_crop_sprites[# 3,  CROP_SPRITE_INFO.FANTASY_2]
+	}
 } else if (_sprite_id = spr_wheat_eggplant_crop) {
 	_spr_offset = ds_crop_sprites[# 1,  CROP_SPRITE_INFO.WHEAT_EGGPLANT]
 	_types_offset = ds_crop_sprites[# 2,  CROP_SPRITE_INFO.WHEAT_EGGPLANT]
@@ -40,6 +46,10 @@ if (_sprite_id = spr_fantasy_crops) {
 	_spr_offset = ds_crop_sprites[# 1,  CROP_SPRITE_INFO.SIMPLE]
 	_types_offset = ds_crop_sprites[# 2,  CROP_SPRITE_INFO.SIMPLE]
 	_max_spr_num = ds_crop_sprites[# 3,  CROP_SPRITE_INFO.SIMPLE]
+} else {
+	_spr_offset = ds_crop_sprites[# 1,  CROP_SPRITE_INFO.TINY_WONDER_FARM]
+	_types_offset = ds_crop_sprites[# 2,  CROP_SPRITE_INFO.TINY_WONDER_FARM]
+	_max_spr_num = ds_crop_sprites[# 3,  CROP_SPRITE_INFO.TINY_WONDER_FARM]
 }
 draw_sprite_part(
 	get_crop_spr_id_by_crop_type(selected_crop),

@@ -51,28 +51,32 @@ max_growth_stage = 5 //by design
 enum CROP_SPRITE_INFO {
 	FANTASY,
 	WHEAT_EGGPLANT,
-	SIMPLE
+	SIMPLE,
+	FANTASY_2,
+	TINY_WONDER_FARM
 }
 ds_crop_sprites = -1
 create_sprite_crop_type(spr_fantasy_crops, 0, 0, 6)
 create_sprite_crop_type(spr_wheat_eggplant_crop, 1, 8, 4)
 create_sprite_crop_type(spr_simple_crops, 0, 10, 4)
+create_sprite_crop_type(spr_fantasy_crops, 7, 22, 6)
+create_sprite_crop_type(spr_tiny_wonder_farm, 0, 30, 4)
 
 
 //the order of this enum should correspond to the order in the sprite
 //Need to update get_crop_obj_id/sprite_by_crop_type manually if upadte this
 enum CROPS {
-	CARROT,//0
+	CARROT,//0 fantasy
 	CROP2, //placeholder
 	CROP3,
 	CROP4,
-	CROP5,
+	LETTUCE,
 	CROP6,
-	CROP7,
+	PURPLE_LETTUCE,
 	CROP8, //7
-	WHEAT,
+	WHEAT,//wheat_and_egg_plant
 	EGGPLANT, //9,
-	CROP11,
+	CROP11, //simple
 	CROP12,
 	CROP13,
 	CROP14,
@@ -84,19 +88,34 @@ enum CROPS {
 	SUNFLOWER,
 	GREEN_PEPPER,
 	CROP22,
+	CROP23, //fantasy_2
+	PURPLE_CABBAGE,
+	CROP25,
+	RADDISH,
+	CAULIFLOWER,
+	CROP28,
+	CROP29,
+	CROP30,
+	PUMPKIN, //tiny wonder farm
+	CROP32,
+	CROP33,
+	CROP34,
+	CROP35,
+
 }
-crop_num = 22
+crop_num = 35
 selected_crop = 0 //correspond to enum above
 
 //insert the info of a crop to the table
 //again, the order is important, should correspond to the order of crop in the sprite
+
 create_crop_type(100,200,300,400,500,"carrot", 70)  //this is the info of the carrot
 create_crop_type(100,100,100,100,100,"crop2", 700)
 create_crop_type(100,100,100,100,100,"crop3", 700)
 create_crop_type(100,100,100,100,100,"crop4", 700)
-create_crop_type(100,100,100,100,100,"crop5", 700)
+create_crop_type(100,200,250,300,400,"lettuce", 100)
 create_crop_type(100,100,100,100,100,"crop6", 700)
-create_crop_type(100,100,100,100,100,"crop7", 700)
+create_crop_type(100,200,250,300,400,"purple lettuce", 300)
 create_crop_type(100,100,100,100,100,"crop8", 700)
 create_crop_type(100,200,400,700,800,"wheat", 100)
 create_crop_type(100,200,400,700,900,"eggplant", 100)
@@ -112,8 +131,19 @@ create_crop_type(100,100,100,100,100,"crop19", 0)
 create_crop_type(100,200,300,500,600,"sunflower", 200)
 create_crop_type(100,200,300,500,700,"green pepper", 300)
 create_crop_type(100,100,100,100,100,"crop22", 0)
-
-
+create_crop_type(100,100,100,100,100,"crop23", 0)
+create_crop_type(100,200,300,400,450,"purple cabbage ", 300)
+create_crop_type(100,100,100,100,100,"crop25", 0)
+create_crop_type(100,150,250,300,350,"raddish", 300)
+create_crop_type(100,200,300,400,450,"cauliflower", 500)
+create_crop_type(100,100,100,100,100,"crop28", 0)
+create_crop_type(100,100,100,100,100,"crop29", 0)
+create_crop_type(100,100,100,100,100,"crop30", 0)
+create_crop_type(100,300,500,800,1000,"pumpkin", 7000)
+create_crop_type(100,100,100,100,100,"crop32", 0)
+create_crop_type(100,100,100,100,100,"crop33", 0)
+create_crop_type(100,100,100,100,100,"crop34", 0)
+create_crop_type(100,100,100,100,100,"crop35", 0)
 
 mx = 0;
 my = 0;

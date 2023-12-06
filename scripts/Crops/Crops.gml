@@ -133,7 +133,8 @@ function get_crop_obj_id_by_crop_type(_crop_type) {
 	if (_crop_type) <= 7 return obj_fantasy_crop
 	if (_crop_type) <= 9 return obj_wheat_eggplant_crop
 	if (_crop_type) <= 21 return obj_simple_crop
-
+	if (_crop_type) <= 29 return obj_fantasy_crop_2
+	else return obj_tiny_wonder
 
 }
 
@@ -143,6 +144,9 @@ function get_crop_spr_id_by_crop_type(_crop_type) {
 	if (_crop_type) <= 7 return spr_fantasy_crops
 	if (_crop_type) <= 9 return spr_wheat_eggplant_crop
 	if (_crop_type) <= 21 return spr_simple_crops
+	if (_crop_type) <= 29 return spr_fantasy_crops
+	else return spr_tiny_wonder_farm
+
 }
 
 function create_sprite_crop_type(_sprite_id, _sprite_offset, _type_offset_, _max_sprite_index) {
