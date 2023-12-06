@@ -12,7 +12,7 @@ hours = minutes/60
 if (hours >=24) {
 	seconds = 0
 	day += 1
-	//make crop grow 
+	//when a day passed, make crop grow by day
 	with(obj_crops_manager) {event_perform(ev_other, ev_user1)}
 	if(day > 30) {
 		day = 1

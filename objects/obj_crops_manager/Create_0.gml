@@ -1,6 +1,6 @@
 /// @description Insert description here 
 //The exp system for crop
-// each crop will require a certain amount of exp point to ascend to each stage
+// each crop require a certain amount of exp point to ascend to a stage
 // each day watered will give them 100 exp
 // depend on the fertilizer, add more exp
 
@@ -11,8 +11,9 @@
 // 3. both
 
 //this is the table that hold information for each type of crop
-//Every crop have 5 stage, the different how to get to each stage
-//any type of crop only need 1 day(=100exp) to get to stage 1
+//Every crop have 5 stage, the different is how many exp to get to each stage
+//by design, any type of crop only need 1 day(=100exp) to get to stage 1
+//QUESTION: So if fertilized on the first day, effect == null ?
 //Statge 0 = seed
 //Statge 1 = sprout
 //Statge 2 = seedling
@@ -27,14 +28,15 @@
 //col 4 is the exp point to get to stage 4
 //col 5 is the exp point to get to stage 5
 //col 6 is the name of the crop
-//col 6 is the cost in summer
+//col 7 is the seed price
+//TODO: and more to came
 ds_crops_types = -1
 ds_crops_instances = -1 // save the location of cell that already have a crop planted, so that another crop cant be planted on top of that 
 ds_crops_data = ds_grid_create(4,1) //to save the data of existing crops on the field, for save or for room exit 
 //ds_crops_data[# 0, 0] = -1
 ds_grid_clear(ds_crops_data, -1)
 is_planting = false
-max_growth_stage = 5
+max_growth_stage = 5 //by design
 //the order of this enum should correspond to the order in the sprite
 enum FANTASY_CROP {
 	CARROT,
@@ -46,12 +48,12 @@ enum FANTASY_CROP {
 	CROP7,
 	CROP8
 }
-num_fantasy_crop = 8
+num_fantasy_crop = 8 //by sprite
 selected_crop = 0 //correspond to enum above
 
 //insert the info of a crop to the table
 //again, the order is important, should correspond to the order of crop in the sprite
-create_crop_type(100,200,300,400,500,"carrot", 700)  //this is the info of the carrot
+create_crop_type(100,200,300,400,500,"carrot", 70)  //this is the info of the carrot
 create_crop_type(100,100,100,100,100,"crop2", 700)
 create_crop_type(100,100,100,100,100,"crop3", 700)
 create_crop_type(100,100,100,100,100,"crop4", 700)
