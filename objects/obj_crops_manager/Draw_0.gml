@@ -24,11 +24,28 @@ if ds_crops_instances[# _gx, _gy] != 0 {
 }  
 draw_rectangle_color(_xx,_yy,_xx + cell_size, _yy + cell_size, _c,_c,_c,_c, true)
 
+var _sprite_id = get_crop_spr_id_by_crop_type(selected_crop)
+var _spr_offset = 0 
+var _types_offset = 0 
+var _max_spr_num = 0 
+if (_sprite_id = spr_fantasy_crops) {
+	_spr_offset = ds_crop_sprites[# 1,  CROP_SPRITE_INFO.FANTASY]
+	_types_offset = ds_crop_sprites[# 2,  CROP_SPRITE_INFO.FANTASY]
+	_max_spr_num = ds_crop_sprites[# 3,  CROP_SPRITE_INFO.FANTASY]
+} else if (_sprite_id = spr_wheat_eggplant_crop) {
+	_spr_offset = ds_crop_sprites[# 1,  CROP_SPRITE_INFO.WHEAT_EGGPLANT]
+	_types_offset = ds_crop_sprites[# 2,  CROP_SPRITE_INFO.WHEAT_EGGPLANT]
+	_max_spr_num = ds_crop_sprites[# 3,  CROP_SPRITE_INFO.WHEAT_EGGPLANT]
+} else if (_sprite_id = spr_simple_crops) {
+	_spr_offset = ds_crop_sprites[# 1,  CROP_SPRITE_INFO.SIMPLE]
+	_types_offset = ds_crop_sprites[# 2,  CROP_SPRITE_INFO.SIMPLE]
+	_max_spr_num = ds_crop_sprites[# 3,  CROP_SPRITE_INFO.SIMPLE]
+}
 draw_sprite_part(
-	spr_fantasy_crops, 
+	get_crop_spr_id_by_crop_type(selected_crop),
 	0, 
-	16 * 6,
-	selected_crop * 16,
+	16 * (_max_spr_num + _spr_offset),
+	(selected_crop - _types_offset) * 16,
 	16,
 	16,
 	_xx,

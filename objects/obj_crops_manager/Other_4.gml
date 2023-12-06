@@ -21,7 +21,7 @@
 	//because respawn_crop only add data, so the current state of crop need to be set explicitly
 	var _types = ds_crops_types
 	var _max_growth_stage = max_growth_stage
-	with(obj_fantasy_crop) {
+	with(obj_crop) {
 		var _state_1_exp = _types[# 0, crop_type]
 		var _state_2_exp = _types[# 1, crop_type]
 		var _state_3_exp = _types[# 2, crop_type]

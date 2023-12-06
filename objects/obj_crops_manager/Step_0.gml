@@ -11,8 +11,8 @@ if(is_planting) {
 	
 	if(mouse_wheel_up()) {selected_crop +=1}
 	if(mouse_wheel_down()) {selected_crop -=1}
-	if selected_crop > num_fantasy_crop - 1 {selected_crop = 0}
-	if selected_crop < 0 {selected_crop = num_fantasy_crop - 1}
+	if selected_crop > crop_num - 1 {selected_crop = 0}
+	if selected_crop < 0 {selected_crop = crop_num - 1}
 
 	
 	if mouse_check_button_pressed(mb_left) {
@@ -21,10 +21,10 @@ if(is_planting) {
 }
 
 //Testing grow_state, TODO:  this should be call each day  
-if (instance_exists(obj_fantasy_crop) and keyboard_check_pressed(ord("G"))) {
+if (instance_exists(obj_crop) and keyboard_check_pressed(ord("G"))) {
 	var _types = obj_crops_manager.ds_crops_types
 	var _max_growth_stage = obj_crops_manager.max_growth_stage
-	with(obj_fantasy_crop) {
+	with(obj_crop) {
 		var _state_1_exp = _types[# 0, crop_type]
 		var _state_2_exp = _types[# 1, crop_type]
 		var _state_3_exp = _types[# 2, crop_type]

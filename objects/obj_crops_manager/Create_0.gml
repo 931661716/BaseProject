@@ -47,18 +47,45 @@ ds_crops_data = ds_grid_create(7,1)
 ds_grid_clear(ds_crops_data, -1)
 is_planting = false
 max_growth_stage = 5 //by design
+
+enum CROP_SPRITE_INFO {
+	FANTASY,
+	WHEAT_EGGPLANT,
+	SIMPLE
+}
+ds_crop_sprites = -1
+create_sprite_crop_type(spr_fantasy_crops, 0, 0, 6)
+create_sprite_crop_type(spr_wheat_eggplant_crop, 1, 8, 4)
+create_sprite_crop_type(spr_simple_crops, 0, 10, 4)
+
+
 //the order of this enum should correspond to the order in the sprite
-enum FANTASY_CROP {
-	CARROT,
+//Need to update get_crop_obj_id/sprite_by_crop_type manually if upadte this
+enum CROPS {
+	CARROT,//0
 	CROP2, //placeholder
 	CROP3,
 	CROP4,
 	CROP5,
 	CROP6,
 	CROP7,
-	CROP8
+	CROP8, //7
+	WHEAT,
+	EGGPLANT, //9,
+	CROP11,
+	CROP12,
+	CROP13,
+	CROP14,
+	CROP15,
+	CROP16,
+	CROP17,
+	ICY_SUNFLOWER, //
+	CROP19,
+	SUNFLOWER,
+	GREEN_PEPPER,
+	CROP22,
 }
-num_fantasy_crop = 8 //by sprite
+crop_num = 22
 selected_crop = 0 //correspond to enum above
 
 //insert the info of a crop to the table
@@ -71,6 +98,22 @@ create_crop_type(100,100,100,100,100,"crop5", 700)
 create_crop_type(100,100,100,100,100,"crop6", 700)
 create_crop_type(100,100,100,100,100,"crop7", 700)
 create_crop_type(100,100,100,100,100,"crop8", 700)
+create_crop_type(100,200,400,700,800,"wheat", 100)
+create_crop_type(100,200,400,700,900,"eggplant", 100)
+create_crop_type(100,100,100,100,100,"crop11", 0)
+create_crop_type(100,100,100,100,100,"crop12", 0)
+create_crop_type(100,100,100,100,100,"crop13", 0)
+create_crop_type(100,100,100,100,100,"crop14", 0)
+create_crop_type(100,100,100,100,100,"crop15", 0)
+create_crop_type(100,100,100,100,100,"crop16", 0)
+create_crop_type(100,100,100,100,100,"crop17", 0)
+create_crop_type(100,300,400,500,600,"icy sunflower", 1200)
+create_crop_type(100,100,100,100,100,"crop19", 0)
+create_crop_type(100,200,300,500,600,"sunflower", 200)
+create_crop_type(100,200,300,500,700,"green pepper", 300)
+create_crop_type(100,100,100,100,100,"crop22", 0)
+
+
 
 mx = 0;
 my = 0;

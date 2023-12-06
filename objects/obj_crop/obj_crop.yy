@@ -1,9 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_fantasy_crop",
+  "name": "obj_crop",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -12,8 +13,8 @@
     "path": "folders/Objects/Crops.yy",
   },
   "parentObjectId": {
-    "name": "obj_crop",
-    "path": "objects/obj_crop/obj_crop.yy",
+    "name": "obj_par_depth",
+    "path": "objects/obj_par_depth/obj_par_depth.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

@@ -1,6 +1,6 @@
 /// @description call this function to make the crop grow by a day
 // You can write your code in this editor
-if (instance_exists(obj_fantasy_crop)) {
+if (instance_exists(obj_crop)) {
 //	with(obj_fantasy_crop) {
 //		if growth_stage < max_growth_stage {
 //			days_old += 1
@@ -12,7 +12,7 @@ if (instance_exists(obj_fantasy_crop)) {
 //	}
 	var _types = obj_crops_manager.ds_crops_types
 	var _max_growth_stage = obj_crops_manager.max_growth_stage
-	with(obj_fantasy_crop) {
+	with(obj_crop) {
 		var _state_1_exp = _types[# 0, crop_type]
 		var _state_2_exp = _types[# 1, crop_type]
 		var _state_3_exp = _types[# 2, crop_type]

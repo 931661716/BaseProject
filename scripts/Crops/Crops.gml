@@ -16,7 +16,6 @@ _stage_5,
 _name,
 _cost
 )
-
 {
 	 var _arg_num =  argument_count
 	 var _height = 0;
@@ -70,7 +69,7 @@ function instance_create_crop(_xx, _yy, _crop_type) {
 		//if _data == 0 { return false }
 	
 		//create and save the newly created crop's id to the ds_crops_instances
-		var _ist = instance_create_layer(_xx , _yy,"Instances", obj_fantasy_crop)
+		var _ist = instance_create_layer(_xx , _yy,"Instances", get_crop_obj_id_by_crop_type(_crop_type))
 		_i_grid[# _gx, _gy] = _ist
 	
 		with(_ist) {
@@ -93,7 +92,7 @@ function instance_create_crop(_xx, _yy, _crop_type) {
 /// @param _bonus
 /// @description respawn_crop
 function respawn_crop(_grid_x, _grid_y, _crop_type, _days_old, _is_watered, _days_not_watered, _bonus) {
-	var _inst = instance_create_layer(_grid_x * cell_size, _grid_y * cell_size, "Instances", obj_fantasy_crop)
+	var _inst = instance_create_layer(_grid_x * cell_size, _grid_y * cell_size, "Instances",  get_crop_obj_id_by_crop_type(_crop_type))
 	ds_crops_instances[# _grid_x, _grid_y]  = _inst
 	
 	with (_inst) {
@@ -113,6 +112,7 @@ function respawn_crop(_grid_x, _grid_y, _crop_type, _days_old, _is_watered, _day
 /// @param _days_not_watered
 /// @param _bonus
 /// @description this will not return 0 as this will should only be called on a day passed, by then the crop will be in stage 1 by default
+/// except for when respawn a crop in the same day
 function get_cur_exp(_days_old, _days_not_watered, _bonus) {	
 	if (_days_old == 0) return 0
 	if (_days_old == 1) return 100 + _bonus
@@ -125,4 +125,46 @@ function get_cur_exp(_days_old, _days_not_watered, _bonus) {
 function get_crop_spr_num(_cur_exp, _max_exp, _max_spr_num) {
 	var _spr_num = floor((_cur_exp / _max_exp) * _max_spr_num) 
 	return _spr_num == 0 ? 1 : _spr_num 
+}
+
+/// @param _crop_type
+/// @description 
+function get_crop_obj_id_by_crop_type(_crop_type) {
+	if (_crop_type) <= 7 return obj_fantasy_crop
+	if (_crop_type) <= 9 return obj_wheat_eggplant_crop
+	if (_crop_type) <= 21 return obj_simple_crop
+
+
+}
+
+/// @param _crop_type
+/// @description 
+function get_crop_spr_id_by_crop_type(_crop_type) {
+	if (_crop_type) <= 7 return spr_fantasy_crops
+	if (_crop_type) <= 9 return spr_wheat_eggplant_crop
+	if (_crop_type) <= 21 return spr_simple_crops
+}
+
+function create_sprite_crop_type(_sprite_id, _sprite_offset, _type_offset_, _max_sprite_index) {
+	var _arg_num =  argument_count
+	var _height = 0;
+	if !ds_exists(ds_crop_sprites, ds_type_grid) 
+	{
+		ds_crop_sprites = ds_grid_create(_arg_num, 1)
+		_height = 1
+	}
+	else 
+	{
+		_height = ds_grid_height(ds_crop_sprites)
+		ds_grid_resize(ds_crop_sprites, _arg_num, _height + 1)
+		_height += 1
+	}
+	
+	var _yy = _height - 1
+	var _i = 0 
+	repeat (_arg_num) 
+	{
+		ds_crop_sprites[# _i, _yy] = argument[_i]
+		_i +=1
+	}
 }

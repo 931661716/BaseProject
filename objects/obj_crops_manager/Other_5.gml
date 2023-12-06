@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 //if (room == rm_farm) {
-	var _inst_num = instance_number(obj_fantasy_crop)
+	var _inst_num = instance_number(obj_crop)
 	if (_inst_num == 0) { ds_grid_clear(ds_crops_data, -1)}
 	else {
 		ds_grid_resize(ds_crops_data, ds_grid_width(ds_crops_data), _inst_num)

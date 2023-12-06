@@ -1,21 +1,9 @@
 /// @description Insert description here
+// You can write your code in this editor
+// Inherit the parent event
+event_inherited();
+sprite_id = obj_crops_manager.ds_crop_sprites[# 0, CROP_SPRITE_INFO.FANTASY]
+max_sprite_num = obj_crops_manager.ds_crop_sprites[# 3,  CROP_SPRITE_INFO.FANTASY]
 
-frame_width = 16
-frame_height = 16
-
-crop_type = 0 //from 0-7 for this sprite
-days_old = 0
-days_not_watered = 0
-is_watered = false
-growth_stage = 0
-bonus = 0 //bonus point when get fertilized
-//growth_stage_duration = 0
-sprite_num = 0
-max_sprite_num = 6 //0-6 sprite
-
-fully_grown = false //aka growth stage = 5.
-
-//xx= x - (frame_width/2 ) + 1
-//yy= y - frame_height + 1
-xx =x
-yy =y
+spr_offset = obj_crops_manager.ds_crop_sprites[# 1,  CROP_SPRITE_INFO.FANTASY] //
+types_offset = obj_crops_manager.ds_crop_sprites[# 2,  CROP_SPRITE_INFO.FANTASY] //

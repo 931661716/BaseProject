@@ -14,3 +14,7 @@ if ds_exists(ds_crops_instances, ds_type_grid) {
 if ds_exists(ds_crops_data, ds_type_grid) {
 	ds_grid_destroy(ds_crops_data)
 }
+
+if ds_exists(ds_crop_sprites, ds_type_grid) {
+	ds_grid_destroy(ds_crop_sprites)
+}
